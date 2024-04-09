@@ -1,33 +1,26 @@
-import { useState } from 'react'
-import './App.css'
-
+import { pdfjs } from "react-pdf";
+import PdfViewer from "./PdfViewer";
+import pdfurl from "./assets/hola2.pdf";
+import Logo from "./assets/logo-uct.png"
 function App() {
-  const [count, setCount] = useState(0)
+  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-         
-        </a>
-        <a href="https://react.dev" target="_blank">
-          
-        </a>
+      <div className="pt-5">
+        <div className="navbar flex border-2">
+          <div className="w-1/3"><img src={Logo} alt="Logo" className="logito"/></div>
+          <div className="w-2/3 flex justify-start"><h1 className="font-bold text-white">Libro de don Ciro</h1></div>
+        </div>  
+
+        <div>
+          <PdfViewer pdfUrl={pdfurl} />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <div className="footer"></div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

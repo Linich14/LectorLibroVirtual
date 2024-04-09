@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -5,7 +9,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+
+  height: 400px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,6 +18,44 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html{
+  background-image: url('assets/OIG2.jpg'); /* Ruta a la imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el elemento */
+  background-repeat: repeat;
+  background-position: center; /* Centra la imagen de fondo */
+
+}
+
+.navbar{
+  background-color: #007dbe;
+  border-radius: 10px;
+  /*background-image: url('assets/logo-uct.png'); /* Ruta a la imagen de fondo */
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 10px;
+}
+
+.logito{
+  width: auto;
+  height: 100px;
+}
+
+
+.navbar h1{
+  padding-top: 20px;
+}
+
+
+.footer{
+  margin-top: 150px;
+  height: 85px;
+  margin-left: -5%;
+  margin-right: -5%;
+  background-image: url('assets/footerinformacion.png'); /* Ruta a la imagen de fondo */
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -22,13 +65,7 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+
 
 h1 {
   font-size: 3.2em;
@@ -47,11 +84,27 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #007dbe;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 150vh; /* Establece la altura al 100% del viewport */
+}
+
+.container-3d {
+  perspective: 1000px; /* Define la perspectiva */
+}
+
+.container-3d > div {
+  transform-style: preserve-3d; /* Preserva la transformación 3D */
+  transform: rotateX(10deg); /* Aplica una rotación en el eje Y para el efecto 3D */
 }
 
 @media (prefers-color-scheme: light) {
