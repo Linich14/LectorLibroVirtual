@@ -10,7 +10,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
-  height: 400px;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,7 +21,8 @@
 html{
   background-image: url('assets/fondo.svg'); /* Ruta a la imagen de fondo */
   background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el elemento */
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-position: center;
 
 }
 
@@ -34,27 +35,10 @@ html{
   padding: 10px;
 }
 
-.logito{
-  width: auto;
-  height: 100px;
-}
 
 
-.navbar h1{
-  padding-top: 20px;
-}
 
 
-.footer{
-  margin-top: 150px;
-  height: 85px;
-  margin-left: -5%;
-  margin-right: -5%;
-  background-image: url('assets/footerinformacion.png'); /* Ruta a la imagen de fondo */
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-}
 a {
   font-weight: 500;
   color: #646cff;
@@ -94,7 +78,12 @@ button:focus-visible {
   display: flex;
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
-  height: 150vh; /* Establece la altura al 100% del viewport */
+  height: 110vh; /* Establece la altura al 100% del viewport */
+}
+
+hr{
+  margin: auto;
+  width: 100vh;
 }
 
 .container-3d {
