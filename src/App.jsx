@@ -18,9 +18,9 @@ function App() {
               <img src={CiroIzquierda} width="100vh"></img>
             </div>
             <div className="grow h-1">
-              <h1 className="font-bold text-white">Curioso</h1>
+              <h1 className="font-bold text-white">CURIOSO</h1>
               <hr ></hr>
-              <h2 className="font-bold text-white">¡El maravilloso mundo de la matemática! Para descubrir, motivarse y aprender.</h2>
+              <h2 className="text-white"> <strong>¡El maravilloso mundo de la matemática!</strong> Para descubrir, motivarse y aprender.</h2>
             </div>
             <div className="flex w-13">
               <img src={CiroDerecha} width="100vh"></img>

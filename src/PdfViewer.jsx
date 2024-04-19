@@ -9,17 +9,25 @@ import "./App.css";
 const PdfViewer = ({ pdfUrl }) => {
   // Variable para el numero de paginas
   const [numPages, setNumPages] = useState(null);
-
+  
+  // Variable para la pagina actual
+  const [currentPage, setCurrentPage] = useState(0);
   // Referencia para el componente FlipPage
   const flipPageRef = useRef();
 
-  // Funciones para cambiar de pagina siguiente
+  // Funciones para cambiar de pagina siguiente 
   const handleNextPage = () => {
+    if (currentPage < numPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
     flipPageRef.current.gotoNextPage();
   };
 
   // Funciones para cambiar de pagina anterior
   const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
     flipPageRef.current.gotoPreviousPage();
   };
 
@@ -43,25 +51,28 @@ const PdfViewer = ({ pdfUrl }) => {
           onLoadSuccess={onDocumentLoadSuccess}
           className={"md"}
         >
-          <FlipPage
-            orientation="horizontal"
-            width={1348}
-            height={900}
-            uncutPages={true}
-            animationDuration={600}
-            showSwipeHint={true}
-            ref={flipPageRef}
-          >
-
-            {Array.from(new Array(Math.ceil(numPages / 2)), (el, index) => (
-              <div key={`page_${index + 1}`} style={{ display: "flex" }}>
-                <Page pageNumber={index * 2 + 1} height={900} renderTextLayer={false} />
-                {index * 2 + 2 <= numPages && (
-                  <Page pageNumber={index * 2 + 2} height={900}  renderTextLayer={false}/>
-                )}
-              </div>
-            ))}
-          </FlipPage>
+<FlipPage
+  orientation="horizontal"
+  width={1348}
+  height={900}
+  uncutPages={true}
+  animationDuration={600}
+  showSwipeHint={true}
+  ref={flipPageRef}
+>
+  {Array.from(new Array(Math.ceil(numPages / 2)), (el, index) => (
+    <div key={`page_${index + 1}`} style={{ display: "flex" }}>
+      {Math.abs(currentPage - index) <= 1 && (
+        <>
+          <Page pageNumber={index * 2 + 1} height={900} renderTextLayer={false} />
+          {(index * 2 + 2) <= numPages && (
+            <Page pageNumber={index * 2 + 2} height={900} renderTextLayer={false} />
+          )}
+        </>
+      )}
+    </div>
+  ))}
+</FlipPage>
         </Document>
       </div>
 
