@@ -7,7 +7,7 @@ import foot from "./assets/Footer.png"
 
 function App() {
   // Configuracion de pdfjs para cargar el worker desde un CDN en lugar de cargarlo localmente
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
   return (
     <>
@@ -34,7 +34,7 @@ function App() {
       <footer className="bg-[#0057FF] border-4 border-[#06004A] rounded-lg p-3 shadow-md overflow-hidden ">
         <div className="bg-[#06004A] grid grid-cols-3 rounded-md">
           <div className="p-2"><p>Ciro González Mallo</p></div>
-          <div className="p-2"><p>Claudia González Algería</p></div>
+          <div className="p-2"><p>Claudia González Alegría</p></div>
           <div className="p-2"><p>Genoveva Garrido Pedreros</p></div>
         </div>
         <div className="flex justify-center"><img src={foot}></img></div>
